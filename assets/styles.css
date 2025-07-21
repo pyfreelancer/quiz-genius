@@ -1,0 +1,280 @@
+/* assets/styles.css - Updated for new dark brown/orange theme */
+
+/* General body and main content styling for a dark theme */
+body {
+    background-color: #221511 !important; /* Very dark brown */
+    color: #e0e0e0; /* Light grey for general text */
+    font-family: 'Inter', "Noto Sans", sans-serif; /* New fonts */
+}
+
+/* Streamlit specific overrides to match the new theme */
+.stApp {
+    background-color: #221511 !important; /* Ensure the main app background is dark brown */
+    color: #e0e0e0;
+    font-family: 'Inter', "Noto Sans", sans-serif;
+}
+
+/* Header and title styling */
+h1, h2, h3, h4, h5, h6 {
+    color: #e64519; /* Orange accent for headings */
+    font-weight: 700; /* Bold headings */
+    letter-spacing: -0.015em; /* Tighten tracking */
+}
+
+/* Sidebar styling */
+.stSidebar {
+    background-color: #321f1a; /* Darker brown for sidebar */
+    color: #e0e0e0;
+    border-right: 1px solid #472c24; /* Border to match header */
+}
+
+.stSidebar .stButton > button {
+    background-color: #e64519; /* Orange for sidebar buttons */
+    color: white;
+    border-radius: 8px;
+    padding: 10px 15px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.stSidebar .stButton > button:hover {
+    background-color: #cc3d16; /* Darker orange on hover */
+    color: white;
+}
+
+/* Main content area styling */
+.main .block-container {
+    padding-top: 2rem !important; /* Use !important for overrides */
+    padding-bottom: 2rem !important;
+    padding-left: 3rem !important;
+    padding-right: 3rem !important;
+    max-width: 960px !important; /* Constrain content width as in your HTML */
+    margin: auto !important; /* Center content */
+}
+
+/* Buttons */
+.stButton > button {
+    background-color: #e64519; /* Orange for main buttons */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 25px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 8px rgba(230, 69, 25, 0.3); /* Orange shadow */
+}
+
+.stButton > button:hover {
+    background-color: #cc3d16; /* Darker orange on hover */
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(230, 69, 25, 0.4);
+}
+
+.stButton > button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(230, 69, 25, 0.2);
+}
+
+/* Text inputs and text areas */
+.stTextInput > div > div > input,
+.stTextArea > div > div > textarea {
+    background-color: #321f1a; /* Darker brown input background */
+    color: #e0e0e0;
+    border: 1px solid #653f34; /* Border to match theme */
+    border-radius: 8px;
+    padding: 10px 15px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    width: 100%; /* Ensure full width */
+    box-sizing: border-box; /* Include padding and border in width */
+}
+
+.stTextInput > div > div > input:focus,
+.stTextArea > div > div > textarea:focus {
+    border-color: #e64519; /* Orange on focus */
+    box-shadow: 0 0 0 2px rgba(230, 69, 25, 0.3); /* Orange glow */
+    outline: none;
+}
+
+/* Select boxes and multi-selects */
+.stSelectbox {
+    margin-bottom: 20px; /* Add some space below the selectbox */
+    z-index: 999; /* Give it a base z-index */
+    width: 100%; /* Ensure it takes full available width */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+/* Target the input area of the selectbox */
+/* This is the visible part that shows the selected value */
+.stSelectbox > div > div > div > div {
+    background-color: #321f1a; /* Darker brown input background */
+    color: #e0e0e0;
+    border: 1px solid #653f34; /* Border to match theme */
+    border-radius: 8px;
+    padding: 8px 12px;
+    width: 100%; /* Ensure the input area takes full width of its container */
+    box-sizing: border-box; /* Include padding and border */
+    overflow: hidden; /* Keep content within bounds, but allow dropdown to be visible */
+    display: flex; /* Use flexbox for internal alignment */
+    align-items: center; /* Center content vertically */
+    justify-content: space-between; /* Push text to left, arrow to right */
+}
+
+/* Target the actual dropdown list container that appears on click */
+div[data-baseweb="select"] > div:last-child {
+    z-index: 1001 !important; /* Ensure dropdown appears above other content */
+    background-color: #321f1a; /* Match input background */
+    border: 1px solid #653f34;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    overflow: auto; /* Allow scrolling if list is long */
+    max-height: 200px; /* Limit height to prevent it from going off-screen */
+    width: 100%; /* Ensure dropdown list itself takes full width */
+    box-sizing: border-box; /* Include padding and border */
+}
+
+/* Style individual options in the dropdown */
+div[data-baseweb="select"] li {
+    color: #e0e0e0;
+    background-color: #321f1a;
+    padding: 8px 12px; /* Add padding for better touch targets */
+    width: 100%; /* Ensure each option takes full width */
+    box-sizing: border-box; /* Include padding and border */
+}
+
+div[data-baseweb="select"] li:hover {
+    background-color: #e64519; /* Orange on hover for options */
+    color: white;
+}
+
+/* Target the dropdown arrow icon (often a SVG or pseudo-element) */
+/* Streamlit uses a specific structure, often a span or div with a caret */
+.stSelectbox > div > div > div > div > div[data-testid="stSelectboxDropdown"] {
+    color: #e64519; /* Orange for the arrow icon */
+    font-size: 1.2em; /* Make it a bit larger if needed */
+    margin-left: 10px; /* Add space between text and arrow */
+    display: flex; /* Ensure it's a flex item */
+    align-items: center; /* Center vertically */
+}
+
+/* Ensure the focus state also looks good */
+.stSelectbox > div > div > div > div:focus {
+    border-color: #e64519;
+    box-shadow: 0 0 0 2px rgba(230, 69, 25, 0.3);
+    outline: none;
+}
+
+
+/* Checkboxes and radio buttons */
+.stCheckbox > label > div > div,
+.stRadio > label > div > div {
+    border-color: #e64519; /* Orange border */
+}
+
+.stCheckbox > label > div > div:checked,
+.stRadio > label > div > div:checked {
+    background-color: #e64519; /* Orange when checked */
+    border-color: #e64519;
+}
+
+/* Expander/Accordion */
+.stExpander {
+    background-color: #321f1a; /* Darker brown for expander */
+    border-radius: 10px;
+    border: 1px solid #472c24;
+    padding: 15px;
+    margin-bottom: 15px;
+}
+
+.stExpander > div > div > summary {
+    color: #e64519; /* Orange for expander title */
+    font-weight: bold;
+}
+
+/* File uploader */
+.stFileUploader > div > div > label {
+    background-color: #e64519;
+    color: white;
+    border-radius: 8px;
+    padding: 10px 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.stFileUploader > div > div > label:hover {
+    background-color: #cc3d16;
+}
+
+/* Success/Error/Info messages */
+.stAlert {
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 15px;
+}
+
+.stAlert.success {
+    background-color: rgba(76, 175, 80, 0.2); /* Keep a subtle green for success */
+    color: #4CAF50;
+    border: 1px solid #4CAF50;
+}
+
+.stAlert.error {
+    background-color: rgba(255, 99, 71, 0.2);
+    color: #FF6347;
+    border: 1px solid #FF6347;
+}
+
+.stAlert.info {
+    background-color: rgba(230, 69, 25, 0.2); /* Light orange for info */
+    color: #e64519;
+    border: 1px solid #e64519;
+}
+
+/* Custom styling for specific elements if needed */
+.quiz-question {
+    background-color: #321f1a; /* Darker brown for quiz questions */
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    border: 1px solid #472c24;
+}
+
+.quiz-option {
+    background-color: #472c24; /* Darker brown for quiz options */
+    color: #e0e0e0;
+    border-radius: 5px;
+    padding: 10px 15px;
+    margin-bottom: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.quiz-option:hover {
+    background-color: #653f34; /* Lighter brown on hover */
+}
+
+.quiz-option.selected {
+    background-color: #e64519; /* Orange for selected option */
+    color: white;
+    font-weight: bold;
+}
+
+/* Adjustments for markdown elements */
+.stMarkdown p, .stMarkdown li {
+    color: #e0e0e0;
+}
+
+.stMarkdown a {
+    color: #e64519; /* Orange for links */
+}
+
+/* Horizontal rule */
+hr {
+    border-top: 1px solid #472c24;
+}
+
+/* Ensure font is applied to all elements */
+* {
+    font-family: 'Inter', "Noto Sans", sans-serif;
+}
