@@ -1,4 +1,3 @@
-/* assets/styles.css - Updated for new dark brown/orange theme */
 
 /* General body and main content styling for a dark theme */
 body {
@@ -10,7 +9,7 @@ body {
 /* Streamlit specific overrides to match the new theme */
 .stApp {
     background-color: #221511 !important; /* Ensure the main app background is dark brown */
-    color: #e0e0e0;
+    color: #e0e0e0; /* Default text color for the app */
     font-family: 'Inter', "Noto Sans", sans-serif;
 }
 
@@ -20,6 +19,45 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 700; /* Bold headings */
     letter-spacing: -0.015em; /* Tighten tracking */
 }
+
+/* Ensure all elements inherit the font and a light color by default */
+* {
+    font-family: 'Inter', "Noto Sans", sans-serif;
+    color: #e0e0e0; /* Apply light grey to all elements by default */
+}
+
+/* Specific overrides for Streamlit components that might have their own dark defaults */
+/* This is crucial for fixing the black text issue */
+.stMarkdown,
+.stMarkdown p,
+.stMarkdown li,
+.stMarkdown span,
+.stMarkdown div {
+    color: #e0e0e0 !important; /* Ensure all markdown text is light */
+}
+
+/* Streamlit widgets text */
+.stTextInput label,
+.stTextArea label,
+.stNumberInput label,
+.stSelectbox label,
+.stRadio label,
+.stCheckbox label,
+.stFileUploader label {
+    color: #e0e0e0 !important; /* Labels for input fields */
+}
+
+/* Text inside input fields */
+.stTextInput > div > div > input,
+.stTextArea > div > div > textarea {
+    color: #e0e0e0 !important; /* Text input content */
+}
+
+/* Selectbox selected value */
+.stSelectbox > div > div > div > div {
+    color: #e0e0e0 !important; /* Selected value in selectbox */
+}
+
 
 /* Sidebar styling */
 .stSidebar {
