@@ -1,3 +1,4 @@
+/* assets/styles.css - Updated for new dark brown/orange theme and font color fix */
 
 /* General body and main content styling for a dark theme */
 body {
@@ -49,7 +50,8 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Text inside input fields */
 .stTextInput > div > div > input,
-.stTextArea > div > div > textarea {
+.stTextArea > div > div > textarea,
+.stNumberInput > div > div > input { /* Added .stNumberInput input here */
     color: #e0e0e0 !important; /* Text input content */
 }
 
@@ -90,28 +92,53 @@ h1, h2, h3, h4, h5, h6 {
     margin: auto !important; /* Center content */
 }
 
-/* Buttons */
+/* Buttons (general styling for st.button) */
 .stButton > button {
-    background-color: #e64519; /* Orange for main buttons */
-    color: white;
-    border: none;
-    border-radius: 8px;
-    padding: 12px 25px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    box-shadow: 0 4px 8px rgba(230, 69, 25, 0.3); /* Orange shadow */
+    background-color: #e64519 !important; /* Orange for main buttons */
+    color: white !important;
+    border: none !important;
+    border-radius: 8px !important;
+    padding: 12px 25px !important;
+    font-weight: bold !important;
+    cursor: pointer !important;
+    transition: background-color 0.3s ease, transform 0.2s ease !important;
+    box-shadow: 0 4px 8px rgba(230, 69, 25, 0.3) !important; /* Orange shadow */
 }
 
 .stButton > button:hover {
-    background-color: #cc3d16; /* Darker orange on hover */
-    transform: translateY(-2px);
-    box-shadow: 0 6px 12px rgba(230, 69, 25, 0.4);
+    background-color: #cc3d16 !important; /* Darker orange on hover */
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 12px rgba(230, 69, 25, 0.4) !important;
 }
 
 .stButton > button:active {
-    transform: translateY(0);
-    box-shadow: 0 2px 4px rgba(230, 69, 25, 0.2);
+    transform: translateY(0) !important;
+    box-shadow: 0 2px 4px rgba(230, 69, 25, 0.2) !important;
+}
+
+/* Styles for the "Add Question" button (st.form_submit_button) */
+/* Targeting by data-testid for higher specificity */
+div[data-testid="stFormSubmitButton"] > button {
+    background-color: #e64519 !important; /* Orange background */
+    color: white !important; /* White text */
+    border: none !important;
+    border-radius: 8px !important;
+    padding: 12px 25px !important;
+    font-weight: bold !important;
+    cursor: pointer !important;
+    transition: background-color 0.3s ease, transform 0.2s ease !important;
+    box-shadow: 0 4px 8px rgba(230, 69, 25, 0.3) !important; /* Orange shadow */
+}
+
+div[data-testid="stFormSubmitButton"] > button:hover {
+    background-color: #cc3d16 !important; /* Darker orange on hover */
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 12px rgba(230, 69, 25, 0.4) !important;
+}
+
+div[data-testid="stFormSubmitButton"] > button:active {
+    transform: translateY(0) !important;
+    box-shadow: 0 2px 4px rgba(230, 69, 25, 0.2) !important;
 }
 
 /* Text inputs and text areas */
@@ -310,6 +337,31 @@ div[data-baseweb="select"] li:hover {
 /* Horizontal rule */
 hr {
     border-top: 1px solid #472c24;
+}
+
+/* Styles for the number input increment/decrement buttons */
+/* Targeting the specific buttons within the number input */
+.stNumberInput button {
+    background-color: #e64519 !important; /* Orange background */
+    color: white !important; /* White text for the +/- signs */
+    border: 1px solid #e64519 !important; /* Orange border */
+    border-radius: 4px !important; /* Slightly rounded corners */
+    width: 30px; /* Fixed width */
+    height: 30px; /* Fixed height */
+    font-size: 1.2em; /* Make +/- signs larger */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.stNumberInput button:hover {
+    background-color: #cc3d16 !important; /* Darker orange on hover */
+    transform: scale(1.05); /* Slight scale effect on hover */
+}
+
+.stNumberInput button:active {
+    transform: scale(0.95); /* Slight press effect on click */
 }
 
 /* Ensure font is applied to all elements */
