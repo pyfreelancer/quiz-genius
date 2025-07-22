@@ -19,7 +19,8 @@ def export_to_pdf(questions: list) -> bytes:
     """
     try:
         pdf = FPDF()
-        pdf.set_auto_page_break(auto_page_break=True, margin=15)
+        # FIX: Change 'auto_page_break' to 'auto'
+        pdf.set_auto_page_break(auto=True, margin=15)
         pdf.add_page()
         pdf.set_font("Arial", size=12)
 
