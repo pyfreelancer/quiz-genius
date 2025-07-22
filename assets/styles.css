@@ -55,7 +55,60 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Selectbox selected value */
 .stSelectbox > div > div > div > div {
-    color: #e0e0e0 !important; /* Selected value in selectbox */
+    background-color: #321f1a !important; /* Ensure input background is dark brown */
+    color: #e0e0e0 !important; /* Ensure selected value text is light */
+    border: 1px solid #653f34 !important; /* Border to match theme */
+    border-radius: 8px !important;
+    padding: 8px 12px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+}
+
+/* Target the actual dropdown list container that appears on click */
+div[data-baseweb="select"] > div:last-child {
+    z-index: 1001 !important; /* Ensure dropdown appears above other content */
+    background-color: #321f1a !important; /* Force dark brown background for the dropdown list */
+    border: 1px solid #653f34 !important;
+    border-radius: 8px !important;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3) !important;
+    overflow: auto !important;
+    max-height: 200px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+/* Style individual options in the dropdown */
+div[data-baseweb="select"] li {
+    color: #e0e0e0 !important; /* Force light text color for options */
+    background-color: #321f1a !important; /* Force dark brown background for options */
+    padding: 8px 12px !important; /* Add padding for better touch targets */
+    width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+div[data-baseweb="select"] li:hover {
+    background-color: #e64519 !important; /* Orange on hover for options */
+    color: white !important;
+}
+
+/* Target the dropdown arrow icon (often a SVG or pseudo-element) */
+.stSelectbox > div > div > div > div > div[data-testid="stSelectboxDropdown"] {
+    color: #e64519 !important; /* Orange for the arrow icon */
+    font-size: 1.2em !important;
+    margin-left: 10px !important;
+    display: flex !important;
+    align-items: center !important;
+}
+
+/* Ensure the focus state also looks good */
+.stSelectbox > div > div > div > div:focus {
+    border-color: #e64519 !important;
+    box-shadow: 0 0 0 2px rgba(230, 69, 25, 0.3) !important;
+    outline: none !important;
 }
 
 
@@ -115,7 +168,6 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* Styles for the "Add Question" button (st.form_submit_button) */
-/* Targeting by data-testid for higher specificity */
 div[data-testid="stFormSubmitButton"] > button {
     background-color: #e64519 !important; /* Orange background */
     color: white !important; /* White text */
@@ -182,101 +234,6 @@ div[data-testid="stDownloadButton"] > button:active {
     border-color: #e64519; /* Orange on focus */
     box-shadow: 0 0 0 2px rgba(230, 69, 25, 0.3); /* Orange glow */
     outline: none;
-}
-
-/* Select boxes and multi-selects */
-.stSelectbox {
-    margin-bottom: 20px; /* Add some space below the selectbox */
-    z-index: 999; /* Give it a base z-index */
-    width: 100%; /* Ensure it takes full available width */
-    box-sizing: border-box; /* Include padding and border in the element's total width and height */
-}
-
-/* Target the input area of the selectbox */
-/* This is the visible part that shows the selected value */
-.stSelectbox > div > div > div > div {
-    background-color: #321f1a; /* Darker brown input background */
-    color: #e0e0e0 !important; /* Ensure selected value text is light */
-    border: 1px solid #653f34; /* Border to match theme */
-    border-radius: 8px;
-    padding: 8px 12px;
-    width: 100%; /* Ensure the input area takes full width of its container */
-    box-sizing: border-box; /* Include padding and border */
-    overflow: hidden; /* Keep content within bounds, but allow dropdown to be visible */
-    display: flex; /* Use flexbox for internal alignment */
-    align-items: center; /* Center content vertically */
-    justify-content: space-between; /* Push text to left, arrow to right */
-}
-
-/* Target the actual dropdown list container that appears on click */
-div[data-baseweb="select"] > div:last-child {
-    z-index: 1001 !important; /* Ensure dropdown appears above other content */
-    background-color: #321f1a; /* Match input background */
-    border: 1px solid #653f34;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    overflow: auto; /* Allow scrolling if list is long */
-    max-height: 200px; /* Limit height to prevent it from going off-screen */
-    width: 100%; /* Ensure dropdown list itself takes full width */
-    box-sizing: border-box; /* Include padding and border */
-}
-
-/* Style individual options in the dropdown */
-div[data-baseweb="select"] li {
-    color: #e0e0e0;
-    background-color: #321f1a;
-    padding: 8px 12px; /* Add padding for better touch targets */
-    width: 100%; /* Ensure each option takes full width */
-    box-sizing: border-box; /* Include padding and border */
-}
-
-div[data-baseweb="select"] li:hover {
-    background-color: #e64519; /* Orange on hover for options */
-    color: white;
-}
-
-/* Target the dropdown arrow icon (often a SVG or pseudo-element) */
-/* Streamlit uses a specific structure, often a span or div with a caret */
-.stSelectbox > div > div > div > div > div[data-testid="stSelectboxDropdown"] {
-    color: #e64519; /* Orange for the arrow icon */
-    font-size: 1.2em; /* Make it a bit larger if needed */
-    margin-left: 10px; /* Add space between text and arrow */
-    display: flex; /* Ensure it's a flex item */
-    align-items: center; /* Center vertically */
-}
-
-/* Ensure the focus state also looks good */
-.stSelectbox > div > div > div > div:focus {
-    border-color: #e64519;
-    box-shadow: 0 0 0 2px rgba(230, 69, 25, 0.3);
-    outline: none;
-}
-
-
-/* Checkboxes and radio buttons */
-.stCheckbox > label > div > div,
-.stRadio > label > div > div {
-    border-color: #e64519; /* Orange border */
-}
-
-.stCheckbox > label > div > div:checked,
-.stRadio > label > div > div:checked {
-    background-color: #e64519; /* Orange when checked */
-    border-color: #e64519;
-}
-
-/* Expander/Accordion */
-.stExpander {
-    background-color: #321f1a; /* Darker brown for expander */
-    border-radius: 10px;
-    border: 1px solid #472c24;
-    padding: 15px;
-    margin-bottom: 15px;
-}
-
-.stExpander > div > div > summary {
-    color: #e64519; /* Orange for expander title */
-    font-weight: bold;
 }
 
 /* File uploader */
@@ -382,7 +339,6 @@ hr {
 }
 
 /* Styles for the number input increment/decrement buttons */
-/* Targeting the specific buttons within the number input */
 .stNumberInput button {
     background-color: #e64519 !important; /* Orange background */
     color: white !important; /* White text for the +/- signs */

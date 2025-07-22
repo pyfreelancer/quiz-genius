@@ -318,7 +318,18 @@ with tab6:
                 mime="application/json"
             )
         elif export_format == "PDF":
-            st.warning("PDF export functionality is under development. Please choose JSON for now.")
+            #st.warning("PDF export functionality is under development. Please choose JSON for now.")
+            # Add the download button for PDF
+            pdf_bytes = export_to_pdf(st.session_state.current_mcqs)
+            if pdf_bytes:
+                st.download_button(
+                    label="Download Questions as PDF",
+                    data=pdf_bytes,
+                    file_name="mcq_questions.pdf",
+                    mime="application/pdf"
+                )
+            else:
+                st.error("Failed to generate PDF. Please try again.")
     else:
         st.info("No questions available in the current session to export. Generate or create some first!")
 
